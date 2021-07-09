@@ -1,21 +1,19 @@
-<<<<<<< HEAD
+
 
 python slam implementation for short videos
 =======
 # Simultaneous Localization and Mapping (SLAM)
 ## mini_SLAM (In Progress, update: 7/7/2021)
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
 Python SLAM implementation for short videos
-
-<<<<<<< HEAD
 
 ## Slam Process 
 =======
 ## example video capture 
 ![video_capture1](https://user-images.githubusercontent.com/57236540/124831382-fada4e80-df2f-11eb-84f1-ff4865319f04.png)
 
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
 
 
@@ -26,11 +24,11 @@ Python SLAM implementation for short videos
 descriptors are compared across the images, to identify similar features. 
 
 ## Overview of the process
-<<<<<<< HEAD
+
 0. find matching keypoints (frame by frame)
 1. update the current state estimate using the keypoints.
 2. update the estimated state from re-observing landmarks
-=======
+
 1. find matching keypoints (frmae by frame )
 2. display 2d matching points on each frame
 
@@ -39,7 +37,6 @@ Todo:
 2. update the estimated state from re-observing landmarks
 3. Add new landmarks to the current state 
 
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
 
 
 ## Variables
@@ -61,7 +58,7 @@ Return a 2D array with ones on the diagonal and zeros elsewhere.
 
 
 ## Camera position (TODO)
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
 
 - Homography (cv2.findHomography)
@@ -78,7 +75,6 @@ https://developer.apple.com/documentation/avfoundation/avcameracalibrationdata/2
 
 intrinsic matrix (commonly represented in equations as K) allows you to transform 3D coordinates to 2D coordinates on an image plane using the pinhole camera model.
 
-<<<<<<< HEAD
 1. Focal length (f_x,f_y)
 TODO: 
 -how to find focal length? 
@@ -90,7 +86,7 @@ The camera's "principal axis" is the line perpendicular to the image plane that 
 
 
 - Cameral Focal Length
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
 
 2. Principal Point Offset (x0,y0)
