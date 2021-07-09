@@ -1,7 +1,7 @@
 
 
 python slam implementation for short videos
-=======
+
 # Simultaneous Localization and Mapping (SLAM)
 ## mini_SLAM (In Progress, update: 7/7/2021)
 
@@ -9,7 +9,6 @@ python slam implementation for short videos
 Python SLAM implementation for short videos
 
 ## Slam Process 
-=======
 ## example video capture 
 ![video_capture1](https://user-images.githubusercontent.com/57236540/124831382-fada4e80-df2f-11eb-84f1-ff4865319f04.png)
 
@@ -50,11 +49,7 @@ cv.goodFeaturesToTrack(	image, maxCorners, qualityLevel,
 : finds the most prominent corners in the image. 
 : can be used to initialize a point-based tracker of an object 
 
-<<<<<<< HEAD
-## Camera position
--  np.eye(n):
-Return a 2D array with ones on the diagonal and zeros elsewhere.
-=======
+## Camera position Return a 2D array with ones on the diagonal and zeros elsewhere.
 
 
 ## Camera position (TODO)
