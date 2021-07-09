@@ -15,7 +15,7 @@ h = 480
 disp2d = Display2D(w,h)
 F = 909
 K = np.array([[F,0,w//2],[0,F,h//2],[0,0,1]])  
-<<<<<<< HEAD
+
 
 fe = extract_feature(K)
 
@@ -30,10 +30,10 @@ def image_process(frame):
     u1,v1 = map(lambda x: int(round(x)),pts1)
     u2,v2 = map(lambda x: int(round(x)),pts2)
     
-=======
+
 
 fe = extract_feature(K)
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
     
 
@@ -69,7 +69,7 @@ def image_process(frame):
 
 
 
-<<<<<<< HEAD
+
 if  __name__ == '__main__':
   cap = cv2.VideoCapture('/Users/joheunkang/Desktop/mini_SLAM/videos/ex2.mp4')                
   while cap.isOpened():
@@ -81,7 +81,6 @@ if  __name__ == '__main__':
       disp2d.draw(frame)
     else:
       break
-=======
 
 
 
@@ -100,4 +99,4 @@ if  __name__ == '__main__':
             disp2d.draw(frame)
         else:
            break
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
