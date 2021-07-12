@@ -13,7 +13,7 @@ w = 640
 h = 480
 
 disp2d = Display2D(w,h)
-F = 368
+F = 270
 K = np.array([[F,0,w//2],[0,F,h//2],[0,0,1]])  
 
 
@@ -24,10 +24,17 @@ fe = extract_feature(K)
 def image_process(frame):
   # get goot match points (not normalized )
   kps, matching_pts= fe.extract(frame,K)
+
   print(matching_pts)
   
   
   for pts1, pts2 in matching_pts:
+    
+    print(pts1)
+    #print(pts1.shape)#(2,)
+    pts1_n = create_hmg(pts1)
+    print(pts1_n)
+    print('normalized pts1_n',pts1_n.shape)
     u1,v1 = map(lambda x: int(round(x)),pts1)
     u2,v2 = map(lambda x: int(round(x)),pts2)
   
@@ -38,7 +45,7 @@ def image_process(frame):
 
 
 if  __name__ == '__main__':
-  cap = cv2.VideoCapture('/Users/joheunkang/Desktop/fun/videos/ex2.mp4')                
+  cap = cv2.VideoCapture('/Users/joheunkang/Desktop/fun/videos/test_countryroad.mp4')                
   while cap.isOpened():
     ret,frame = cap.read()
     frame = cv2.resize(frame,(w,h))
