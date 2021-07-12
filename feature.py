@@ -5,7 +5,7 @@ from skimage.transform import FundamentalMatrixTransform,EssentialMatrixTransfor
 from skimage.measure import ransac
 
 
-<<<<<<< HEAD
+
 
 def create_hmg(pts):
   'make the point homogenious point ' 
@@ -13,30 +13,10 @@ def create_hmg(pts):
   return np.concatenate([pts,np.ones((n,1))],axis=1)
 
 def normalize(K,pt):
-      return np.dot(np.linalg(K),pt)[0:2,:]
+  return np.dot(np.linalg(K),pt)[0:2,:]
 
-=======
-        self.K = K 
-        self.Kinv = np.linalg.inv(self.K)
-        
-    def denormalize(self,pt):
-        ret = pt[0]
 
-        #ret = np.dot(self.Kinv,np.array([pt[0],pt[1],1.0]))
-        #print(ret)
-        #return (int(ret[0]),int(ret[1]))
     
-    def extract(self,frame):
-        features = cv2.goodFeaturesToTrack(np.mean(frame,axis = 2).astype(np.uint8),3000,qualityLevel = 0.01, minDistance = 7)
-        
-        # extraction method1
-        kps = [cv2.KeyPoint(x = f[0][0], y = f[0][1], _size = 20) for f in features]
-        kps, des = self.orb.compute(frame,kps)
-        
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
-
-
-<<<<<<< HEAD
 
 class extract_feature(object):
 
@@ -58,7 +38,7 @@ class extract_feature(object):
      
       kps = [cv2.KeyPoint(x = f[0][0], y = f[0][1], _size = 20) for f in features]
       kps, des = self.orb.compute(frame,kps)
-=======
+
         if len(good)> 0:
             good = np.array(good)
             
@@ -76,13 +56,13 @@ class extract_feature(object):
 
             #only good mache about 700
             print('mached:',len(good))
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
 
 
       matches = None
       matching_pts = []
         
-<<<<<<< HEAD
+
       # find matching points 
       bf = cv2.BFMatcher()
       if self.last != None:
@@ -103,9 +83,9 @@ class extract_feature(object):
           
         # this is better matching 'key' points
         matching_pts= matching_pts[inliers]
-=======
+
         return np.array(good)
->>>>>>> d9844f33de3761dedf0138eeae8165c2b8436ea0
+
         
 
       self.last = {'kps':kps , 'des':des}
