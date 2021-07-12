@@ -2,21 +2,7 @@
 import cv2
 import numpy as np
 from skimage.transform import FundamentalMatrixTransform,EssentialMatrixTransform
-from skimage.measure import ransac
-
-
-
-
-def create_hmg(pts):
-  'make the point homogenious point ' 
-  n = pts.shape[0]
-  return np.concatenate([pts,np.ones((n,1))],axis=1)
-
-def normalize(K,pt):
-  return np.dot(np.linalg(K),pt)[0:2,:]
-
-
-    
+from skimage.measure import ransac    
 
 class extract_feature(object):
 
@@ -28,8 +14,7 @@ class extract_feature(object):
     self.K = K 
     self.Kinv = np.linalg.inv(self.K)
     
-  def normalize(self,K,pt):
-    return np.dot(np.linalg(K),pt)[0:2,:]
+ 
       
 
     
@@ -49,7 +34,7 @@ class extract_feature(object):
       matches = bf.knnMatch(des,self.last['des'],k=2)
         
       for m,n in matches:
-        if m.distance < 0.75*n.distance:
+        if m.distance < 0.65*n.distance:
           kp1 = kps[m.queryIdx].pt
           kp2 = self.last['kps'][m.trainIdx].pt 
           matching_pts.append((kp1, kp2))
@@ -59,7 +44,9 @@ class extract_feature(object):
 
       # with the matching points, we find the "keymatching" points
       # from this ransac, we find the homography
-      model,inliers = ransac((matching_pts[:,0],matching_pts[:,1]),FundamentalMatrixTransform,min_samples = 8,residual_threshold = 1,max_trials = 120)
+      model,inliers = ransac((matching_pts[:,0],matching_pts[:,1]),EssentialMatrixTransform,min_samples = 8,residual_threshold = 1,max_trials = 120)
+
+      print('essential model param from ransac',model.params)
           
       # this is better matching 'key' points
       matching_pts= matching_pts[inliers]
